@@ -7,14 +7,17 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("https://www.arbeitnow.com/api/job-board-api")
+      .get(
+        "https://pathfoundry-2d121-default-rtdb.europe-west1.firebasedatabase.app/jobs-api.json"
+      )
       .then((response) => {
-        setJobs(response.data.data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(error);
-        setLoading(false);
+        const newArray = response.data;
+        const newResponse = Object.keys(newArray).map((id) => ({
+          id,
+          ...newArray[id],
+        }));
+        console.log(newResponse);
+        setJobs(newResponse);
       });
   }, []);
 
@@ -24,16 +27,13 @@ function App() {
       <ul>
         {jobs.map((job) => (
           <li key={job.id}>
-            <h2>{job.title}</h2>
+            <h2>{job.salary}</h2>
             <p>
-              <strong>Company:</strong> {job.company_name}
+              <strong>Company:</strong> {job.description}
             </p>
             <p>
               <strong>Location:</strong> {job.location}
             </p>
-            <a href={job.url} target="_blank" rel="">
-              View Job
-            </a>
           </li>
         ))}
       </ul>
