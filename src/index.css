@@ -2,6 +2,133 @@
 @tailwind components;
 @tailwind utilities;
 
+/*General page*/
+
 .list-container {
   background-color: #f3f4f6;
+}
+
+/*About page*/
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.flex-container h1 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.what-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  margin: 1rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.1rem 0.2rem 0.2rem rgb(224, 223, 223);
+  width: 80%;
+  height: 10rem;
+}
+.what-container h4 {
+  color: #1f2937;
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-top: 1rem;
+}
+.what-container p {
+  color: #1f2937;
+  margin: 1rem 2rem;
+}
+
+.goals-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  margin: 1rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.1rem 0.2rem 0.2rem rgb(224, 223, 223);
+  width: 80%;
+  height: 10rem;
+}
+
+.goals-container h4 {
+  color: #1f2937;
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-top: 1rem;
+}
+
+.goals-container p {
+  color: #1f2937;
+  margin: 1rem 2rem;
+}
+
+.who-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  margin: 1rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.1rem 0.2rem 0.2rem rgb(224, 223, 223);
+  width: 80%;
+  height: auto;
+}
+.who-container h4 {
+  color: #1f2937;
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-top: 1rem;
+}
+.contributors-container {
+  display: flex;
+}
+
+.contributor-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contributor-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contributors-container h6 {
+  margin-top: 1rem;
+  color: #1f2937;
+  font-weight: 400;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.contributors-container .photo {
+  width: 12rem;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.contributors-container p {
+  margin: 2rem;
+}
+
+.logos {
+  display: flex;
+}
+.github-logo {
+  width: 0.1rem;
+  height: auto;
+}
+.linkedin-logo {
+  width: 2rem;
+  height: auto;
 }
