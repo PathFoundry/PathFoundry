@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../css/forms.css";
 
 function AddJobForm(props) {
   //CREATE NEW JOB FORM//
@@ -51,8 +52,10 @@ function AddJobForm(props) {
   };
   return (
     <div className="form-container">
-      <h2>List your job</h2>
-      <form onSubmit={handleSubmit}>
+      <div className="forms-header">
+        <h2>List your job</h2>
+      </div>
+      <form className="form-container" onSubmit={handleSubmit}>
         <label className="job-name-label">
           {" "}
           Job Name:
@@ -173,14 +176,14 @@ function AddJobForm(props) {
             type="radio"
             name="remote"
             id="Remote"
-            value="true" // Set this as "true" or "false" as appropriate
+            value="true"
             checked={remote === "true"}
             onChange={(e) => {
               setRemote(e.target.value);
             }}
           />
         </label>
-        <button>Create</button>
+        <button>Submit</button>
       </form>
     </div>
   );

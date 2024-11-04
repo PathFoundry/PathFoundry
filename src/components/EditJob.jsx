@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import "../css/forms.css";
 
 function EditJob() {
   //CREATE NEW JOB FORM//
@@ -75,8 +76,10 @@ function EditJob() {
   };
   return (
     <div className="form-container">
-      <h2>Edit your job: {job_name}</h2>
-      <form onSubmit={handleSubmit}>
+      <div className="forms-header">
+        <h2>Edit your job: {job_name}</h2>
+      </div>
+      <form className="form-container" onSubmit={handleSubmit}>
         <label className="job-name-label">
           {" "}
           Job Name:
