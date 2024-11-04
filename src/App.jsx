@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import EditJob from "./components/EditJob";
 import JobsList from "./components/JobsList";
 import AddJobForm from "./components/AddJobForm";
+import JobDetails from "./components/JobDetails";
 
 import "./App.css";
 
@@ -23,6 +24,7 @@ function App() {
               path="/"
               element={<JobsList jobs={jobs} setJobs={setJobs} />}
             />
+            <Route path="/jobs/:jobId" element={<JobDetails />} />
             <Route
               path="/jobs/addjob"
               element={<AddJobForm jobs={jobs} setJobs={setJobs} />}
