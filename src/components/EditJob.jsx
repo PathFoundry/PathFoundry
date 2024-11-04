@@ -1,8 +1,8 @@
 import axios from "axios";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-function AddJobForm(props) {
+function EditJob() {
   //CREATE NEW JOB FORM//
 
   //states//
@@ -20,12 +20,41 @@ function AddJobForm(props) {
   //redirecting//
   const navigate = useNavigate();
 
+  const { jobId } = useParams();
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://pathfoundry-2d121-default-rtdb.europe-west1.firebasedatabase.app/jobs-api/${jobId}.json`
+      )
+      .then((response) => {
+        const newArray = response.data;
+        const newResponse = Object.keys(newArray).map((id) => ({
+          id,
+          ...newArray[id],
+        }));
+        setName(newResponse.job_name);
+        setCompany(newResponse.company_name);
+        setDescription(newResponse.description);
+        setSalary(newResponse.salary);
+        setLocation(newResponse.company_location);
+        setMap(newResponse.company_location_maps);
+        setLogo(newResponse.company_logo_url);
+        setContractType(newResponse.type_contract);
+        setJobHours(newResponse.job_hours);
+        setRemote(newResponse.remote);
+      })
+      .catch((error) =>
+        console.log("Error getting job details from the API...", error)
+      );
+  }, [jobId]);
+
   //not reloading//
   const handleSubmit = (e) => {
     e.preventDefault();
 
     //template to add//
-    const newJob = {
+    const editedJob = {
       job_name: job_name,
       company_name: company_name,
       description: description,
@@ -40,14 +69,14 @@ function AddJobForm(props) {
 
     //adding to API//
     axios
-      .post(
-        "https://pathfoundry-2d121-default-rtdb.europe-west1.firebasedatabase.app/jobs-api.json",
-        newJob
+      .put(
+        `https://pathfoundry-2d121-default-rtdb.europe-west1.firebasedatabase.app/jobs-api/${jobId}.json`,
+        editedJob
       )
       .then((response) => {
-        navigate("/");
+        navigate(`/jobs/${jobId}`);
       })
-      .catch((e) => console.log("Error creating a new job...", e));
+      .catch((e) => console.log("Error editing job...", e));
   };
   return (
     <div className="form-container">
@@ -173,7 +202,7 @@ function AddJobForm(props) {
             type="radio"
             name="remote"
             id="Remote"
-            value="true" // Set this as "true" or "false" as appropriate
+            value="true"
             checked={remote === "true"}
             onChange={(e) => {
               setRemote(e.target.value);
@@ -185,4 +214,4 @@ function AddJobForm(props) {
     </div>
   );
 }
-export default AddJobForm;
+export default EditJob;

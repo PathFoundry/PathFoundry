@@ -2,6 +2,7 @@ import React from "react";
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import EditJob from "./components/EditJob";
 
 import "./App.css";
 import AddJobForm from "./components/AddJobForm";
@@ -19,6 +20,7 @@ function App() {
           path="/jobs/addjob"
           element={<AddJobForm jobs={jobs} setJobs={setJobs} />}
         />
+        <Route path="/jobs/:jobId/edit" element={<EditJob />} />
 
         <Route
           path="/"
