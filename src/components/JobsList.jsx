@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../css/JobsList.css";
 
-function JobsList() {
-  const [jobs, setJobs] = useState([]);
-
+function JobsList(props) {
   useEffect(() => {
     axios
       .get(
@@ -17,7 +15,7 @@ function JobsList() {
           ...newArray[id],
         }));
         const reverseNewResponse = newResponse.toReversed();
-        setJobs(reverseNewResponse);
+        props.setJobs(reverseNewResponse);
       });
   }, []);
 
@@ -25,7 +23,7 @@ function JobsList() {
     <div>
       <h1>Job Listings</h1>
       <ul className="jobs-list-container">
-        {jobs.map((job) => (
+        {props.jobs.map((job) => (
           <li key={job.id}>
             <div className="job-card-header">
               <div className="job-card-logo">
