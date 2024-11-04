@@ -15,14 +15,29 @@ function JobsList(props) {
             id,
             ...newArray[id],
           }));
-          const reverseNewResponse = newResponse.reverse(); // changed to reverse for compatibility
+          const reverseNewResponse = newResponse.reverse();
           props.setJobs(reverseNewResponse);
         } else {
-          props.setJobs([]); // Set an empty array if no data is returned
+          props.setJobs([]);
         }
       })
       .catch((error) => console.error("Error fetching jobs:", error));
   }, []);
+
+  // Function to delete a job
+  const handleDelete = async (jobId) => {
+    try {
+      // Call the delete API
+      await axios.delete(
+        `https://pathfoundry-2d121-default-rtdb.europe-west1.firebasedatabase.app/jobs-api/${jobId}.json`
+      );
+
+      // Update state to remove the deleted job
+      props.setJobs((prevJobs) => prevJobs.filter((job) => job.id !== jobId));
+    } catch (error) {
+      console.error("Error deleting job:", error);
+    }
+  };
 
   return (
     <div className="px-4 py-8">
@@ -61,6 +76,12 @@ function JobsList(props) {
                 >
                   View More Details
                 </Link>
+                <button
+                  onClick={() => handleDelete(job.id)}
+                  className="mt-2 bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700"
+                >
+                  Delete
+                </button>
               </div>
             </div>
           </li>
