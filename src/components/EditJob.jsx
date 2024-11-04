@@ -28,21 +28,16 @@ function EditJob() {
         `https://pathfoundry-2d121-default-rtdb.europe-west1.firebasedatabase.app/jobs-api/${jobId}.json`
       )
       .then((response) => {
-        const newArray = response.data;
-        const newResponse = Object.keys(newArray).map((id) => ({
-          id,
-          ...newArray[id],
-        }));
-        setName(newResponse.job_name);
-        setCompany(newResponse.company_name);
-        setDescription(newResponse.description);
-        setSalary(newResponse.salary);
-        setLocation(newResponse.company_location);
-        setMap(newResponse.company_location_maps);
-        setLogo(newResponse.company_logo_url);
-        setContractType(newResponse.type_contract);
-        setJobHours(newResponse.job_hours);
-        setRemote(newResponse.remote);
+        setName(response.data.job_name);
+        setCompany(response.data.company_name);
+        setDescription(response.data.description);
+        setSalary(response.data.salary);
+        setLocation(response.data.company_location);
+        setMap(response.data.company_location_maps);
+        setLogo(response.data.company_logo_url);
+        setContractType(response.data.type_contract);
+        setJobHours(response.data.job_hours);
+        setRemote(response.data.remote);
       })
       .catch((error) =>
         console.log("Error getting job details from the API...", error)
@@ -80,7 +75,7 @@ function EditJob() {
   };
   return (
     <div className="form-container">
-      <h2>List your job</h2>
+      <h2>Edit your job: {job_name}</h2>
       <form onSubmit={handleSubmit}>
         <label className="job-name-label">
           {" "}
@@ -209,7 +204,7 @@ function EditJob() {
             }}
           />
         </label>
-        <button>Create</button>
+        <button>Submit</button>
       </form>
     </div>
   );
