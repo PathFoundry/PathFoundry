@@ -1,11 +1,12 @@
 // JobDetails.js
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 function JobDetails() {
   const { jobId } = useParams();
   const [job, setJob] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -58,6 +59,13 @@ function JobDetails() {
           </ul>
         </div>
 
+        <button
+          onClick={() => navigate(`/edit-job/${jobId}`)} // Navigate to EditJob page
+          className="mt-6 bg-blue-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-700 transition duration-200"
+        >
+          Edit
+        </button>
+        <div className="my-6" />
         <Link
           to="/"
           className="text-blue-500 hover:text-blue-700 font-semibold"

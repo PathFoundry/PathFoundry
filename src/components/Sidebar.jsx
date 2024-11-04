@@ -1,17 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link for routing
 
 const Sidebar = () => {
   return (
     <aside className="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
-      <a href="#">
-        <img
-          className="w-auto h-6 sm:h-7"
-          src="../src/assets/company-logo.png"
-          alt="Logo"
-        />
-      </a>
-
-      <div className="relative mt-6">
+      <div className="relative">
         <span className="absolute inset-y-0 left-0 flex items-center pl-3">
           <svg
             className="w-5 h-5 text-gray-400"
@@ -37,9 +30,9 @@ const Sidebar = () => {
 
       <div className="flex flex-col justify-between flex-1 mt-6">
         <nav>
-          <a
+          <Link // Updated to use Link
             className="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-md dark:bg-gray-800 dark:text-gray-200"
-            href="#"
+            to="/" // Link to Homepage
           >
             <svg
               className="w-5 h-5"
@@ -56,11 +49,11 @@ const Sidebar = () => {
               />
             </svg>
             <span className="mx-4 font-medium">Homepage</span>
-          </a>
+          </Link>
 
-          <a
+          <Link // Updated to use Link for Create Job
             className="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-            href="#"
+            to="/add-job" // Link to Create Job page
           >
             <svg
               className="w-5 h-5"
@@ -84,11 +77,11 @@ const Sidebar = () => {
               />
             </svg>
             <span className="mx-4 font-medium">Create Job</span>
-          </a>
+          </Link>
 
-          <a
+          <Link // Updated to use Link for About
             className="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-            href="#"
+            to="/about" // Link to About page (adjust as needed)
           >
             <svg
               className="w-5 h-5"
@@ -105,7 +98,7 @@ const Sidebar = () => {
               />
             </svg>
             <span className="mx-4 font-medium">About</span>
-          </a>
+          </Link>
         </nav>
       </div>
     </aside>
