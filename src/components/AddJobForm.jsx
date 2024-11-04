@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function AddJobForm(props) {
+function AddJobForm() {
   // State hooks
   const [job_name, setName] = useState("");
   const [company_name, setCompany] = useState("");
@@ -73,126 +73,163 @@ function AddJobForm(props) {
   };
 
   return (
-    <div className="form-container">
-      <h2>List Your Job</h2>
-      {error && <p className="error-message text-red-600">{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <label className="job-name-label">
-          Job Name:
+    <div className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg">
+      <h2 className="text-2xl font-bold mb-4">List Your Job</h2>
+      {error && <p className="text-red-600">{error}</p>}
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
+            Job Name:
+          </label>
           <input
             type="text"
             name="job_name"
             placeholder="E.g. Sales Assistant"
             value={job_name}
             onChange={(e) => setName(e.target.value)}
-            required // Make this field required
+            required
+            className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-300"
           />
-        </label>
-        <label className="company-name-label">
-          Company Name:
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
+            Company Name:
+          </label>
           <input
             type="text"
             name="company_name"
             placeholder="E.g. Ironhack"
             value={company_name}
             onChange={(e) => setCompany(e.target.value)}
-            required // Make this field required
+            required
+            className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-300"
           />
-        </label>
-        <label className="description-label">
-          Description:
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
+            Description:
+          </label>
           <input
             type="text"
             name="description"
             placeholder="Job description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            required // Make this field required
+            required
+            className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-300"
           />
-        </label>
-        <label className="salary-label">
-          Salary:
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
+            Salary:
+          </label>
           <input
             type="text"
             name="salary"
             placeholder="E.g. 40,000 $"
             value={salary}
             onChange={(e) => setSalary(e.target.value)}
+            className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-300"
           />
-          $
-        </label>
-        <label className="company-location-label">
-          Address:
+          <span className="text-gray-500">USD</span>
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
+            Address:
+          </label>
           <input
             type="text"
             name="company_location"
             placeholder="Add your address"
             value={company_location}
             onChange={(e) => setLocation(e.target.value)}
+            className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-300"
           />
-        </label>
-        <label className="company-location-maps-label">
-          Map URL:
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
+            Map URL:
+          </label>
           <input
             type="text"
             name="company_location_maps"
             placeholder="Map URL"
             value={company_location_maps}
             onChange={(e) => setMap(e.target.value)}
+            className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-300"
           />
-        </label>
-        <label className="company-logo-url-label">
-          Logo:
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
+            Logo:
+          </label>
           <input
             type="text"
             name="company_logo_url"
             placeholder="Paste URL here"
             value={company_logo_url}
             onChange={(e) => setLogo(e.target.value)}
+            className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-300"
           />
-        </label>
-        <label className="type-contract-label">
-          Contract Type:
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
+            Contract Type:
+          </label>
           <input
             type="text"
             name="type_contract"
             placeholder="Temporary or Permanent"
             value={type_contract}
             onChange={(e) => setContractType(e.target.value)}
+            className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-300"
           />
-        </label>
-        <label className="job-hours-label">
-          Job Hours:
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
+            Job Hours:
+          </label>
           <input
             type="text"
             name="job_hours"
             placeholder="Full-time or Part-time"
             value={job_hours}
             onChange={(e) => setJobHours(e.target.value)}
+            className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-300"
           />
-        </label>
-        <label className="remote-label">
-          Remote:
-          <input
-            type="radio"
-            name="remote"
-            id="remote-true"
-            value="true"
-            checked={remote === "true"}
-            onChange={() => setRemote("true")}
-          />
-          <label htmlFor="remote-true">Yes</label>
-          <input
-            type="radio"
-            name="remote"
-            id="remote-false"
-            value="false"
-            checked={remote === "false"}
-            onChange={() => setRemote("false")}
-          />
-          <label htmlFor="remote-false">No</label>
-        </label>
-        <button type="submit" disabled={loading}>
+        </div>
+        <div className="flex items-center">
+          <label className="block text-sm font-medium text-gray-700">
+            Remote:
+          </label>
+          <div className="ml-4">
+            <input
+              type="radio"
+              name="remote"
+              id="remote-true"
+              value="true"
+              checked={remote === "true"}
+              onChange={() => setRemote("true")}
+              className="mr-2"
+            />
+            <label htmlFor="remote-true">Yes</label>
+            <input
+              type="radio"
+              name="remote"
+              id="remote-false"
+              value="false"
+              checked={remote === "false"}
+              onChange={() => setRemote("false")}
+              className="ml-4 mr-2"
+            />
+            <label htmlFor="remote-false">No</label>
+          </div>
+        </div>
+        <button
+          type="submit"
+          disabled={loading}
+          className="w-full py-2 px-4 bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
+        >
           {loading ? "Creating..." : "Create"}
         </button>
       </form>

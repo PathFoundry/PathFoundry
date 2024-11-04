@@ -53,7 +53,7 @@ const Sidebar = () => {
 
           <Link // Updated to use Link for Create Job
             className="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-            to="/add-job" // Link to Create Job page
+            to="/jobs/addjob" // Link to Create Job page
           >
             <svg
               className="w-5 h-5"

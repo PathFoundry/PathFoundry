@@ -26,7 +26,7 @@ function App() {
             />
 
             <Route path="/jobs/:jobId" element={<JobDetails />} />
-            <Route path="/edit-job/:jobId" element={<EditJob />} />
+
             <Route
               path="/jobs/addjob"
               element={<AddJobForm jobs={jobs} setJobs={setJobs} />}
