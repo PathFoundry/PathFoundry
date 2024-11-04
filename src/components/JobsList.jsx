@@ -1,8 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react"; // Import useState
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "../css/JobsList.css";
 
 function JobsList(props) {
+  const [selectedJobId, setSelectedJobId] = useState(null); // Step 1: State for selected job
+
   useEffect(() => {
     axios
       .get(
@@ -23,6 +26,11 @@ function JobsList(props) {
       })
       .catch((error) => console.error("Error fetching jobs:", error));
   }, []);
+
+  // Function to toggle job details
+  const toggleJobDetails = (jobId) => {
+    setSelectedJobId((prevId) => (prevId === jobId ? null : jobId));
+  };
 
   return (
     <div>
@@ -57,6 +65,9 @@ function JobsList(props) {
                 {job.remote && <p>Remote</p>}
                 <p>{job.job_hours}</p>
               </div>
+              <Link to={`/jobs/${job.id}`} className="view-more-button">
+                View More Details
+              </Link>
             </div>
           </li>
         ))}
