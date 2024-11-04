@@ -1,9 +1,8 @@
-// JobDetails.js
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
-function JobDetails() {
+function JobDetails({ setJobs }) {
   const { jobId } = useParams();
   const [job, setJob] = useState(null);
   const navigate = useNavigate();
@@ -20,6 +19,22 @@ function JobDetails() {
   }, [jobId]);
 
   if (!job) return <div className="text-center">Loading...</div>;
+
+  // Function to delete a job
+  const handleDelete = async () => {
+    try {
+      // Call the delete API
+      await axios.delete(
+        `https://pathfoundry-2d121-default-rtdb.europe-west1.firebasedatabase.app/jobs-api/${jobId}.json`
+      );
+
+      // Update state to remove the deleted job from the list
+      setJobs((prevJobs) => prevJobs.filter((job) => job.id !== jobId));
+      navigate("/");
+    } catch (error) {
+      console.error("Error deleting job:", error);
+    }
+  };
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -60,7 +75,7 @@ function JobDetails() {
         </div>
 
         <button
-          onClick={() => navigate(`/jobs/${jobId}/edit`)} // Navigate to EditJob page
+          onClick={() => navigate(`/edit-job/${jobId}`)} // Navigate to EditJob page
           className="mt-6 bg-blue-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-700 transition duration-200"
         >
           Edit
@@ -72,6 +87,12 @@ function JobDetails() {
         >
           Back to Job Listings
         </Link>
+        <button
+          onClick={handleDelete} // Correctly calling handleDelete
+          className="mt-2 bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700"
+        >
+          Delete
+        </button>
       </div>
     </div>
   );

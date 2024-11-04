@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"; // Import Link for routing
+import "../css/Forms.css";
 
 const Sidebar = () => {
   return (
