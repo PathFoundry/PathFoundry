@@ -1,37 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import JobsList from "./components/JobsList";
+import AddJobForm from "./components/AddJobForm";
 
 import "./App.css";
-import AddJobForm from "./components/AddJobForm";
-import JobsList from "./components/JobsList";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useState } from "react";
 
 function App() {
   const [jobs, setJobs] = useState([]);
-  return (
-    <>
-      <AddJobForm jobs={jobs} setJobs={setJobs} />
 
-      <Routes>
-        <Route path="/" element={<JobsList jobs={jobs} setJobs={setJobs} />} />
-        <Route
-          path="/"
-          element={
-            <div className="flex flex-col min-h-screen">
-              <Navbar />
-              <div className="flex flex-1">
-                <Sidebar />
-              </div>
-              <Footer />
-            </div>
-          }
-        />
-        <Route path="*" element={<h2>Page Not Found</h2>} />
-      </Routes>
-    </>
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <div className="flex flex-1">
+        <Sidebar />
+        <main>
+          <Routes>
+            <Route
+              path="/"
+              element={<JobsList jobs={jobs} setJobs={setJobs} />}
+            />
+            <Route
+              path="/jobs/addjob"
+              element={<AddJobForm jobs={jobs} setJobs={setJobs} />}
+            />
+            <Route path="*" element={<div>404 Not Found</div>} />
+          </Routes>
+        </main>
+      </div>
+      <Footer />
+    </div>
   );
 }
 

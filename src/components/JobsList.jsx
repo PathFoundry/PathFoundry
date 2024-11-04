@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import "../css/JobsList.css";
 
@@ -9,25 +9,33 @@ function JobsList(props) {
         "https://pathfoundry-2d121-default-rtdb.europe-west1.firebasedatabase.app/jobs-api.json"
       )
       .then((response) => {
-        const newArray = response.data;
-        const newResponse = Object.keys(newArray).map((id) => ({
-          id,
-          ...newArray[id],
-        }));
-        const reverseNewResponse = newResponse.toReversed();
-        props.setJobs(reverseNewResponse);
-      });
+        if (response.data) {
+          const newArray = response.data;
+          const newResponse = Object.keys(newArray).map((id) => ({
+            id,
+            ...newArray[id],
+          }));
+          const reverseNewResponse = newResponse.reverse(); // changed to reverse for compatibility
+          props.setJobs(reverseNewResponse);
+        } else {
+          props.setJobs([]); // Set an empty array if no data is returned
+        }
+      })
+      .catch((error) => console.error("Error fetching jobs:", error));
   }, []);
 
   return (
     <div>
       <h1>Job Listings</h1>
       <ul className="jobs-list-container">
-        {props.jobs.map((job) => (
-          <li key={job.id}>
+        {(props.jobs || []).map((job) => (
+          <li key={job.id} className="job-card">
             <div className="job-card-header">
               <div className="job-card-logo">
-                <img src={job.company_logo_url} />
+                <img
+                  src={job.company_logo_url}
+                  alt={`${job.company_name} logo`}
+                />
               </div>
               <div className="job-card-basic-info flex-1">
                 <div className="job-card-title">
