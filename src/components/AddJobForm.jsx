@@ -1,33 +1,185 @@
 import axios from "axios";
+import { useState } from "react";
 
 function AddJobForm(props) {
   //CREATE NEW JOB FORM//
+
+  //states//
+  const [job_name, setName] = useState("");
+  const [company_name, setCompany] = useState("");
+  const [description, setDescription] = useState("");
+  const [salary, setSalary] = useState("");
+  const [company_location, setLocation] = useState("");
+  const [company_location_maps, setMap] = useState("");
+  const [company_logo_url, setLogo] = useState("");
+  const [type_contract, setContractType] = useState("");
+  const [job_hours, setJobHours] = useState("");
+  const [remote, setRemote] = useState("");
+
+  //not reloading//
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    //redirecting//
+    const navigate = useNavigate();
+
+    //template to add//
     const newJob = {
-      job_name: "Quality Assurance Analyst",
-      company_name: "Tech Check Inc.",
-      description: "Ensure product quality through testing and analysis.",
-      salary: "$65,000 - $85,000",
-      company_location: "San Diego, CA",
-      company_location_maps: "https://maps.google.com/?q=San+Diego,+CA",
-      company_logo_url: "https://example.com/logo38.png",
-      type_contract: "permanent",
-      job_hours: "full-time",
-      remote: true,
+      job_name: job_name,
+      company_name: company_name,
+      description: description,
+      salary: salary,
+      company_location: company_location,
+      company_location_maps: company_location_maps,
+      company_logo_url: company_logo_url,
+      type_contract: type_contract,
+      job_hours: job_hours,
+      remote: remote,
     };
 
+    //adding to API//
     axios
       .post(
         "https://pathfoundry-2d121-default-rtdb.europe-west1.firebasedatabase.app/jobs-api.json",
         newJob
       )
       .then((response) => {
-        navigate("/projects"); // redirect to projects page
+        navigate("/");
       })
       .catch((e) => console.log("Error creating a new project...", e));
   };
-  return <h2>Job form goes here</h2>;
+  return (
+    <div className="form-container">
+      <h2>List your job</h2>
+      <form onSubmit={handleSubmit}>
+        <label className="job-name-label">
+          {" "}
+          Job Name:
+          <input
+            type="text"
+            name="job_name"
+            placeholder="Eg. Sales Assistant"
+            value={job_name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
+        </label>
+        <label className="company-name-label">
+          {" "}
+          Company Name:
+          <input
+            type="text"
+            name="company_name"
+            placeholder="Eg. Ironhack"
+            value={company_name}
+            onChange={(e) => {
+              setCompany(e.target.value);
+            }}
+          />
+        </label>
+        <label className="description-label">
+          {" "}
+          Description:
+          <input
+            type="text"
+            name="description"
+            placeholder="Eg. Ironhack"
+            value={description}
+            onChange={(e) => {
+              setDescription(e.target.value);
+            }}
+          />
+        </label>
+        <label className="salary-label">
+          {" "}
+          Salary:
+          <input
+            type="text"
+            name="salary"
+            placeholder="Eg. 40,000 $"
+            value={salary}
+            onChange={(e) => {
+              setSalary(e.target.value);
+            }}
+          />
+          $
+        </label>
+        <label className="company-location-label">
+          {" "}
+          Address:
+          <input
+            type="text"
+            name="company_location"
+            placeholder="Add your address"
+            value={company_location}
+            onChange={(e) => {
+              setLocation(e.target.value);
+            }}
+          />
+        </label>
+        <label className="company-location-maps-label">
+          {" "}
+          Map URL:
+          <input
+            type="text"
+            name="company_location_maps"
+            placeholder="Map URL"
+            value={company_location_maps}
+            onChange={(e) => {
+              setMap(e.target.value);
+            }}
+          />
+        </label>
+        <label className="company-logo-url-label">
+          Logo:
+          <input
+            type="text"
+            name="company_logo_url"
+            placeholder="Paste URL here"
+            value={company_logo_url}
+            onChange={(e) => {
+              setLogo(e.target.value);
+            }}
+          />
+        </label>
+        <label className="type-contract-label">
+          Contract type:
+          <input
+            type="text"
+            name="type_contract"
+            placeholder="Temporary or Permanent"
+            value={type_contract}
+            onChange={(e) => {
+              setContractType(e.target.value);
+            }}
+          />
+        </label>
+        <label className="job-hours-label">
+          Job hours:
+          <input
+            type="text"
+            name="job_hours"
+            placeholder="Full-time or Part-time"
+            value={job_hours}
+            onChange={(e) => {
+              setJobHours(e.target.value);
+            }}
+          />
+        </label>
+        <label className="remote-label">
+          <input
+            type="radio"
+            name="remote"
+            id="Remote"
+            value={remote}
+            onChange={(e) => {
+              setRemote(e.target.value);
+            }}
+          />
+        </label>
+      </form>
+    </div>
+  );
 }
 export default AddJobForm;

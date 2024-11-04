@@ -23,7 +23,7 @@ function JobsList(props) {
     <div>
       <h1>Job Listings</h1>
       <ul className="jobs-list-container">
-        {jobs.map((job) => (
+        {props.jobs.map((job) => (
           <li key={job.id}>
             <div className="job-card-header">
               <div className="job-card-logo">
