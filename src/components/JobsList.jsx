@@ -26,7 +26,7 @@ function JobsList(props) {
   }, []);
 
   return (
-    <div className="px-4 py-8" id="list-container">
+    <div className="px-4 py-8" className="list-container">
       <h1 className="text-2xl font-bold mb-6">Job Listings</h1>
       <ul className="space-y-4">
         {(props.jobs || []).map((job) => (

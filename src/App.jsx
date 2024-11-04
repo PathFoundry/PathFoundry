@@ -7,6 +7,7 @@ import EditJob from "./components/EditJob";
 import JobsList from "./components/JobsList";
 import AddJobForm from "./components/AddJobForm";
 import JobDetails from "./components/JobDetails";
+import About from "./components/About";
 
 import "./App.css";
 
@@ -34,6 +35,7 @@ function App() {
               element={<AddJobForm jobs={jobs} setJobs={setJobs} />}
             />
             <Route path="/jobs/:jobId/edit" element={<EditJob />} />
+            <Route path="/about" element={<About />} />
             <Route path="*" element={<h2>404 Not Found</h2>} />
           </Routes>
         </main>
