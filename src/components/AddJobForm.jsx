@@ -53,7 +53,7 @@ function AddJobForm(props) {
   return (
     <div className="form-container">
       <div className="forms-header">
-        <h2>List your job</h2>
+        <h1>List your job</h1>
       </div>
       <form className="form-container" onSubmit={handleSubmit}>
         <label className="job-name-label">

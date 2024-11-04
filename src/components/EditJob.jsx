@@ -77,7 +77,7 @@ function EditJob() {
   return (
     <div className="form-container">
       <div className="forms-header">
-        <h2>Edit your job: {job_name}</h2>
+        <h1>Edit your job: {job_name}</h1>
       </div>
       <form className="form-container" onSubmit={handleSubmit}>
         <label className="job-name-label">
