@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react"; // Import useState
-import axios from "axios";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "../css/JobsList.css";
 
 function JobsList(props) {
-  const [selectedJobId, setSelectedJobId] = useState(null); // Step 1: State for selected job
-
   useEffect(() => {
     axios
       .get(
@@ -27,47 +25,44 @@ function JobsList(props) {
       .catch((error) => console.error("Error fetching jobs:", error));
   }, []);
 
-  // Function to toggle job details
-  const toggleJobDetails = (jobId) => {
-    setSelectedJobId((prevId) => (prevId === jobId ? null : jobId));
-  };
-
   return (
-    <div>
-      <h1>Job Listings</h1>
-      <ul className="jobs-list-container">
+    <div className="px-4 py-8">
+      <h1 className="text-2xl font-bold mb-6">Job Listings</h1>
+      <ul className="space-y-4">
         {(props.jobs || []).map((job) => (
-          <li key={job.id} className="job-card">
-            <div className="job-card-header">
-              <div className="job-card-logo">
-                <img
-                  src={job.company_logo_url}
-                  alt={`${job.company_name} logo`}
-                />
-              </div>
-              <div className="job-card-basic-info flex-1">
-                <div className="job-card-title">
-                  <h2 className="text-xl font-semibold">{job.job_name}</h2>
-                  <p className="text-gray-600">{job.company_name}</p>
-                  <p className="text-gray-500">{job.company_location}</p>
-                </div>
-                <div className="job-card-salary">
-                  <p className="font-semibold text-gray-700">{job.salary}</p>
-                </div>
-              </div>
+          <li
+            key={job.id}
+            className="bg-white shadow-lg rounded-lg p-6 flex flex-col md:flex-row"
+          >
+            <div className="flex-shrink-0">
+              <img
+                src={job.company_logo_url}
+                alt={`${job.company_name} logo`}
+                className="w-20 h-20 rounded-md border border-blue-500"
+              />
             </div>
-            <div className="job-card-bottom mt-4">
-              <div className="job-card-description">
-                <p className="text-gray-700">{job.description}</p>
+            <div className="flex-grow md:ml-4 mt-4 md:mt-0">
+              <h2 className="text-xl font-semibold text-gray-800">
+                {job.job_name}
+              </h2>
+              <p className="text-gray-600">{job.company_name}</p>
+              <p className="text-gray-500">{job.company_location}</p>
+              <p className="mt-2 text-lg font-bold text-gray-700">
+                {job.salary}
+              </p>
+              <div className="mt-4 flex items-center justify-between">
+                <div className="flex space-x-4 text-gray-500">
+                  <span>{job.type_contract}</span>
+                  {job.remote && <span className="text-green-500">Remote</span>}
+                  <span>{job.job_hours}</span>
+                </div>
+                <Link
+                  to={`/jobs/${job.id}`}
+                  className="mt-2 text-blue-500 hover:text-blue-700 font-semibold"
+                >
+                  View More Details
+                </Link>
               </div>
-              <div className="job-card-structured-data mt-2 flex space-x-4 text-gray-600 text-sm">
-                <p>{job.type_contract}</p>
-                {job.remote && <p>Remote</p>}
-                <p>{job.job_hours}</p>
-              </div>
-              <Link to={`/jobs/${job.id}`} className="view-more-button">
-                View More Details
-              </Link>
             </div>
           </li>
         ))}
