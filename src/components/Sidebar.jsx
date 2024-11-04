@@ -55,7 +55,7 @@ const Sidebar = () => {
                 strokeLinejoin="round"
               />
             </svg>
-            <span className="mx-4 font-medium">Dashboard</span>
+            <span className="mx-4 font-medium">Homepage</span>
           </a>
 
           <a
@@ -83,7 +83,7 @@ const Sidebar = () => {
                 strokeLinejoin="round"
               />
             </svg>
-            <span className="mx-4 font-medium">Accounts</span>
+            <span className="mx-4 font-medium">About</span>
           </a>
 
           <a
@@ -104,7 +104,7 @@ const Sidebar = () => {
                 strokeLinejoin="round"
               />
             </svg>
-            <span className="mx-4 font-medium">Tickets</span>
+            <span className="mx-4 font-medium">Create Job</span>
           </a>
 
           <a
