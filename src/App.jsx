@@ -16,7 +16,7 @@ function App() {
       <Navbar />
       <div className="flex flex-1">
         <Sidebar />
-        <main>
+        <main className="flex-1">
           <Routes>
             <Route
               path="/"
@@ -26,7 +26,7 @@ function App() {
               path="/jobs/addjob"
               element={<AddJobForm jobs={jobs} setJobs={setJobs} />}
             />
-            <Route path="*" element={<div>404 Not Found</div>} />
+            <Route path="*" element={<h2>404 Not Found</h2>} />
           </Routes>
         </main>
       </div>

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function AddJobForm(props) {
   //CREATE NEW JOB FORM//
@@ -16,12 +17,12 @@ function AddJobForm(props) {
   const [job_hours, setJobHours] = useState("");
   const [remote, setRemote] = useState("");
 
+  //redirecting//
+  const navigate = useNavigate();
+
   //not reloading//
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    //redirecting//
-    const navigate = useNavigate();
 
     //template to add//
     const newJob = {
@@ -178,6 +179,7 @@ function AddJobForm(props) {
             }}
           />
         </label>
+        <button>Create</button>
       </form>
     </div>
   );
