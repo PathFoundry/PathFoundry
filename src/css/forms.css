@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
 }
+<<<<<<< HEAD
 
 /* code for mobile */
 
@@ -82,4 +83,20 @@ button {
   .footer-links {
     flex-direction: column;
   }
+=======
+.forms-header {
+  background-color: hsl(202, 71%, 27%);
+  width: 97%;
+  height: 10rem;
+  margin-top: 1rem;
+  text-align: center;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.forms-header h1 {
+  font-size: 2rem;
+  color: white;
+>>>>>>> fee18d885a7db7885e6d857bdb2722347e519fe6
 }

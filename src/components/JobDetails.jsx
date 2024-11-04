@@ -75,7 +75,7 @@ function JobDetails({ setJobs }) {
         </div>
 
         <button
-          onClick={() => navigate(`/edit-job/${jobId}`)}
+          onClick={() => navigate(`/edit-job/${jobId}`)} // Navigate to EditJob page
           className="mt-6 bg-blue-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-700 transition duration-200"
         >
           Edit
@@ -88,7 +88,7 @@ function JobDetails({ setJobs }) {
           Back to Job Listings
         </Link>
         <button
-          onClick={handleDelete}
+          onClick={handleDelete} // Correctly calling handleDelete
           className="mt-2 bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700"
         >
           Delete
