@@ -24,11 +24,14 @@ function App() {
               path="/"
               element={<JobsList jobs={jobs} setJobs={setJobs} />}
             />
+
             <Route path="/jobs/:jobId" element={<JobDetails />} />
+
             <Route
               path="/jobs/addjob"
               element={<AddJobForm jobs={jobs} setJobs={setJobs} />}
             />
+
             <Route path="/jobs/:jobId/edit" element={<EditJob />} />
             <Route path="*" element={<h2>404 Not Found</h2>} />
           </Routes>
