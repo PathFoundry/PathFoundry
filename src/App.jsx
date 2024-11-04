@@ -13,10 +13,13 @@ function App() {
   const [jobs, setJobs] = useState([]);
   return (
     <>
-      <AddJobForm jobs={jobs} setJobs={setJobs} />
-
       <Routes>
         <Route path="/" element={<JobsList jobs={jobs} setJobs={setJobs} />} />
+        <Route
+          path="/jobs/addjob"
+          element={<AddJobForm jobs={jobs} setJobs={setJobs} />}
+        />
+
         <Route
           path="/"
           element={
