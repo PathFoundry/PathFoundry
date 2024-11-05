@@ -4,7 +4,7 @@ import "../css/Forms.css";
 const Footer = () => {
   return (
     <footer className="bg-white dark:bg-gray-900">
-      <div className="container flex flex-col items-center justify-between px-6 py-8 mx-auto lg:flex-row">
+      <div className="container flex items-center justify-between px-6 py-4 mx-auto lg:flex-row">
         <a href="#">
           <img
             className="w-auto h-7"
