@@ -11,6 +11,7 @@
 }
 .card-wraper {
   transition: box-shadow 0.3s ease;
+  width: 80%;
 }
 .card-wraper:hover {
   box-shadow: 0 0.1rem 0.2rem 0.2rem rgb(182, 181, 181);
@@ -198,7 +199,7 @@
 
 #details-description {
   text-align: left;
-  margin: 2rem;
+  margin: 1rem;
 }
 
 #contract-details {
