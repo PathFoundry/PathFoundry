@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import axios from "axios";
 import "../css/Forms.css";
 
-function JobsList(props) {
+function JobsList({ jobs, setJobs, filteredItems }) {
   useEffect(() => {
     axios
       .get(
@@ -17,20 +17,21 @@ function JobsList(props) {
             ...newArray[id],
           }));
           const reverseNewResponse = newResponse.reverse();
-          props.setJobs(reverseNewResponse);
+          setJobs(reverseNewResponse);
         } else {
-          props.setJobs([]);
+          setJobs([]);
         }
       })
       .catch((error) => console.error("Error fetching jobs:", error));
-  }, []);
+  }, [setJobs]);
 
+  const displayJobs = filteredItems.length > 0 ? filteredItems : jobs;
   return (
     <div className="list-container">
       <div className="px-4 py-8">
         <h1 className="text-2xl font-bold mb-6">Job Listings</h1>
         <ul className="space-y-4">
-          {(props.jobs || []).map((job) => (
+          {(displayJobs || []).map((job) => (
             <NavLink to={`/jobs/${job.id}`}>
               <li
                 key={job.id}
