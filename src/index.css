@@ -13,13 +13,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1rem;
 }
 
 .flex-container h1 {
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 2rem;
+  margin-top: 1rem;
 }
 .what-container {
   display: flex;
@@ -118,14 +118,15 @@
 }
 
 .contributors-container p {
-  margin: 2rem;
+  margin: 2rem 2rem 0.5rem 2rem;
 }
 
 .logos {
   display: flex;
+  margin-bottom: 1rem;
 }
 .github-logo {
-  width: 0.1rem;
+  width: 2rem;
   height: auto;
 }
 .linkedin-logo {
