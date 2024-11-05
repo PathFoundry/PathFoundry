@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom"; // Import Link for routing
 import "../css/Forms.css";
 
-const Sidebar = () => {
+const Sidebar = ({ inputRef, onChange }) => {
   return (
     <aside className="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
       <div className="relative">
@@ -24,6 +24,8 @@ const Sidebar = () => {
 
         <input
           type="text"
+          ref={inputRef}
+          onChange={onChange}
           className="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
           placeholder="Search"
         />
