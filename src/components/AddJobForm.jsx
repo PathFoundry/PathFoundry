@@ -73,7 +73,7 @@ function AddJobForm() {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg">
+    <div className="max-w-md mx-auto p-6 bg-white shadow-md  rounded-lg mt-10 mb-10">
       <h2 className="text-2xl font-bold mb-4">List Your Job</h2>
       {error && <p className="text-red-600">{error}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
