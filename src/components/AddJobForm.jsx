@@ -83,11 +83,11 @@ function AddJobForm() {
           </label>
           <input
             type="text"
+            required
             name="job_name"
             placeholder="E.g. Sales Assistant"
             value={job_name}
             onChange={(e) => setName(e.target.value)}
-            required
             className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-300"
           />
         </div>
@@ -129,6 +129,7 @@ function AddJobForm() {
             placeholder="E.g. 40,000 $"
             value={salary}
             onChange={(e) => setSalary(e.target.value)}
+            required
             className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-300"
           />
           <span className="text-gray-500">USD</span>
@@ -142,6 +143,7 @@ function AddJobForm() {
             name="company_location"
             placeholder="Add your address"
             value={company_location}
+            required
             onChange={(e) => setLocation(e.target.value)}
             className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-300"
           />
@@ -165,6 +167,7 @@ function AddJobForm() {
           </label>
           <input
             type="text"
+            required
             name="company_logo_url"
             placeholder="Paste URL here"
             value={company_logo_url}
@@ -178,6 +181,7 @@ function AddJobForm() {
           </label>
           <input
             type="text"
+            required
             name="type_contract"
             placeholder="Temporary or Permanent"
             value={type_contract}
@@ -194,6 +198,7 @@ function AddJobForm() {
             name="job_hours"
             placeholder="Full-time or Part-time"
             value={job_hours}
+            required
             onChange={(e) => setJobHours(e.target.value)}
             className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-300"
           />
@@ -205,6 +210,7 @@ function AddJobForm() {
           <div className="ml-4">
             <input
               type="radio"
+              required
               name="remote"
               id="remote-true"
               value="true"
@@ -215,6 +221,7 @@ function AddJobForm() {
             <label htmlFor="remote-true">Yes</label>
             <input
               type="radio"
+              required
               name="remote"
               id="remote-false"
               value="false"
