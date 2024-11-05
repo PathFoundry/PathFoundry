@@ -34,7 +34,7 @@ const Sidebar = ({ inputRef, onChange }) => {
       <div className="flex flex-col justify-between flex-1 mt-6">
         <nav>
           <Link // Updated to use Link
-            className="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-md dark:bg-gray-800 dark:text-gray-200"
+            className="flex items-center px-4 py-2 text-gray-600 rounded-md dark:bg-gray-800 dark:text-gray-200"
             to="/" // Link to Homepage
           >
             <svg
