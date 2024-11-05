@@ -6,6 +6,7 @@
 
 .list-container {
   background-color: #f3f4f6;
+  height: 100%;
 }
 
 /*About page*/
@@ -132,4 +133,11 @@
 .linkedin-logo {
   width: 2rem;
   height: auto;
+}
+
+/** Job details **/
+#back-button {
+  background-color: #f3f4f6;
+  margin: 0.5rem 0rem 2rem 0rem;
+  border-radius: 0.5rem;
 }
