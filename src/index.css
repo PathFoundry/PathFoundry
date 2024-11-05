@@ -9,6 +9,13 @@
   height: 100%;
   padding-top: 1rem;
 }
+.card-wraper {
+  transition: box-shadow 0.3s ease;
+}
+.card-wraper:hover {
+  box-shadow: 0 0.1rem 0.2rem 0.2rem rgb(182, 181, 181);
+}
+/*Forms*/
 #forms-container-create {
   display: flex;
   flex-direction: column;
