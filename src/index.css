@@ -107,7 +107,7 @@
 }
 .who-container h4 {
   color: #1f2937;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 1.25rem;
   line-height: 1.75rem;
   margin-top: 1rem;
@@ -130,14 +130,15 @@
 
 .contributors-container h6 {
   margin-top: 1rem;
+  margin-bottom: 1rem;
   color: #1f2937;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 1.25rem;
   text-align: center;
 }
 
 .contributors-container .photo {
-  width: 12rem;
+  width: 8rem;
   height: auto;
   border-radius: 0.5rem;
 }
@@ -149,16 +150,23 @@
 .logos {
   display: flex;
   margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 .github-logo {
   width: 2rem;
   height: auto;
+  margin-right: 0.2rem;
+}
+.github-logo:hover {
+  box-shadow: 0.1rem 0.1rem 0.1rem rgb(224, 223, 223);
 }
 .linkedin-logo {
   width: 2rem;
   height: auto;
 }
-
+.linkedin-logo:hover {
+  box-shadow: 0.1rem 0.1rem 0.1rem rgb(224, 223, 223);
+}
 /** Job details **/
 #back-button {
   background-color: #f3f4f6;
