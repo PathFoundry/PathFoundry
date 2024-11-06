@@ -4,7 +4,10 @@ import "/src/css/forms.css";
 
 const Sidebar = ({ inputRef, onChange }) => {
   return (
-    <aside className="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
+    <aside
+      id="sidebar-container"
+      className="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700"
+    >
       <div className="relative">
         <span className="absolute inset-y-0 left-0 flex items-center pl-3">
           <svg

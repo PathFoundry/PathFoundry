@@ -68,7 +68,7 @@
   border-radius: 0.5rem;
   box-shadow: 0 0.1rem 0.2rem 0.2rem rgb(224, 223, 223);
   width: 80%;
-  height: 10rem;
+  height: fit-content;
 }
 .what-container h4 {
   color: #1f2937;
@@ -91,7 +91,7 @@
   border-radius: 0.5rem;
   box-shadow: 0 0.1rem 0.2rem 0.2rem rgb(224, 223, 223);
   width: 80%;
-  height: 10rem;
+  height: fit-content;
 }
 
 .goals-container h4 {
@@ -231,6 +231,9 @@
 #details-description {
   text-align: left;
   margin: 2rem;
+}
+#contract-type {
+  padding-top: 0.5rem;
 }
 
 #contract-details {

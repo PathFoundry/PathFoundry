@@ -105,7 +105,7 @@ function JobDetails({ setJobs }) {
               id="contract-details"
               className="list-disc list-inside space-y-2"
             >
-              <p>
+              <p id="contract-type">
                 <span className="font-bold">Contract Type:</span>{" "}
                 {job.type_contract}
               </p>
