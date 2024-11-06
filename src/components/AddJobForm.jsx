@@ -16,6 +16,8 @@ function AddJobForm() {
   const [remote, setRemote] = useState("");
   const [error, setError] = useState(""); // For error messages
   const [loading, setLoading] = useState(false); // For loading state
+  const [createdMessage, setCreatedMessage] = useState("");
+  const [showNotification, setShowNotification] = useState(false);
 
   const navigate = useNavigate();
 
@@ -53,7 +55,9 @@ function AddJobForm() {
       )
       .then((response) => {
         setLoading(false);
-        // Clear form fields after successful submission
+        setCreatedMessage("Job created successfully!");
+        setShowNotification(true);
+
         setName("");
         setCompany("");
         setDescription("");
@@ -64,9 +68,15 @@ function AddJobForm() {
         setContractType("");
         setJobHours("");
         setRemote("");
-        window.scrollTo(0, 0);
-        navigate("/"); // Redirect to homepage
+
+        setTimeout(() => {
+          setShowNotification(false);
+          setTimeout(() => {
+            navigate("/");
+          }, 500);
+        }, 2000);
       })
+
       .catch((e) => {
         setLoading(false);
         setError("Error creating a new job. Please try again.");
@@ -82,6 +92,19 @@ function AddJobForm() {
       >
         <h2 className="text-2xl font-bold mb-4">List Your Job</h2>
         {error && <p className="text-red-600">{error}</p>}
+
+        {showNotification && (
+          <div
+            className={`fixed top-4 right-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded shadow-lg transform transition-opacity duration-500 ${
+              showNotification ? "opacity-100" : "opacity-0"
+            }`}
+            role="alert"
+          >
+            <span className="block sm:inline font-semibold">
+              {createdMessage}
+            </span>
+          </div>
+        )}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700">
