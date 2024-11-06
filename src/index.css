@@ -16,6 +16,19 @@
 .card-wraper:hover {
   box-shadow: 0 0.1rem 0.2rem 0.2rem rgb(182, 181, 181);
 }
+.delete-button {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.2rem;
+}
+
+.delete-button:hover {
+  box-shadow: 0 0.1rem 0.1rem 0.1rem rgb(224, 223, 223);
+}
+.card-head-container {
+  display: flex;
+  justify-content: space-between;
+}
 /*Forms*/
 #forms-container-create {
   display: flex;

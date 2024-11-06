@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import axios from "axios";
 import "/src/css/forms.css";
 
-function JobsList({ jobs, setJobs, filteredItems }) {
+function JobsList({ jobs, setJobs, filteredItems, handleDelete }) {
   useEffect(() => {
     axios
       .get(
@@ -32,7 +32,7 @@ function JobsList({ jobs, setJobs, filteredItems }) {
         <h1 className="text-2xl font-bold mb-6">Job Listings</h1>
         <ul className="space-y-4">
           {(displayJobs || []).map((job) => (
-            <div className="card-wraper">
+            <div className="card-wraper" key={job.id}>
               <NavLink to={`/jobs/${job.id}`}>
                 <li
                   key={job.id}
@@ -46,9 +46,21 @@ function JobsList({ jobs, setJobs, filteredItems }) {
                     />
                   </div>
                   <div className="flex-grow md:ml-4 mt-4 md:mt-0">
-                    <h2 className="text-xl font-semibold text-gray-800">
-                      {job.job_name}
-                    </h2>
+                    <div className="card-head-container">
+                      <h2 className="text-xl font-semibold text-gray-800">
+                        {job.job_name}
+                      </h2>
+
+                      <img
+                        src="src/assets/delete.png"
+                        className="delete-button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          e.preventDefault();
+                          handleDelete(job.id);
+                        }}
+                      />
+                    </div>
                     <p className="text-gray-600">{job.company_name}</p>
                     <p className="text-gray-500">{job.company_location}</p>
                     <p className="mt-2 text-lg font-bold text-gray-700">

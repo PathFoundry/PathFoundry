@@ -8,6 +8,7 @@ import JobsList from "./components/JobsList";
 import AddJobForm from "./components/AddJobForm";
 import JobDetails from "./components/JobDetails";
 import About from "./components/About";
+import axios from "axios";
 
 import "./App.css";
 
@@ -16,6 +17,8 @@ function App() {
   const [filteredItems, setFilteredItems] = useState([]);
   const navigate = useNavigate();
   const inputRef = useRef();
+  const [deletedMessage, setDeletedMessage] = useState("");
+  const [showNotification, setShowNotification] = useState(false);
 
   // search bar (state created above)
   function onSubmit(e) {
@@ -37,6 +40,26 @@ function App() {
     );
   }
 
+  const handleDelete = async (jobId) => {
+    try {
+      await axios.delete(
+        `https://pathfoundry-2d121-default-rtdb.europe-west1.firebasedatabase.app/jobs-api/${jobId}.json`
+      );
+
+      setJobs((prevJobs) => prevJobs.filter((job) => job.id !== jobId));
+
+      setDeletedMessage("Job deleted successfully!");
+      setShowNotification(true);
+
+      setTimeout(() => {
+        setShowNotification(false);
+        navigate("/");
+      }, 1000);
+    } catch (error) {
+      console.error("Error deleting job:", error);
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -51,12 +74,15 @@ function App() {
                   jobs={jobs}
                   setJobs={setJobs}
                   filteredItems={filteredItems}
+                  handleDelete={handleDelete}
                 />
               }
             />
             <Route
               path="/jobs/:jobId"
-              element={<JobDetails setJobs={setJobs} />}
+              element={
+                <JobDetails setJobs={setJobs} handleDelete={handleDelete} />
+              }
             />
             <Route
               path="/jobs/addjob"
