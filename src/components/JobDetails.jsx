@@ -58,6 +58,7 @@ function JobDetails({ setJobs }) {
               onClick={() => navigate(`/jobs/${jobId}/edit`)}
             />
           </div>
+
           <div className="flex items-center mb-4 mt-4">
             <img
               id="company-logo"
