@@ -51,12 +51,16 @@ function JobDetails({ setJobs }) {
             >
               &lt; Back
             </Link>
-            <img
-              id="edit-logo"
-              src="src/assets/edit-icon.png"
-              onClick={() => navigate(`/jobs/${jobId}/edit`)}
-            />
+            <button onClick={() => navigate(`/jobs/${jobId}/edit`)}>
+              <img
+                id="edit-logo"
+                src="../src/assets/edit-icon.png"
+                className="w-6 h-6"
+                alt="Edit Icon"
+              />
+            </button>
           </div>
+
           <div className="flex items-center mb-4 mt-4">
             <img
               id="company-logo"
