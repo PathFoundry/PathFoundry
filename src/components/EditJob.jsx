@@ -81,7 +81,7 @@ function EditJob() {
         <h2 className="text-2xl font-semibold text-center mb-6">
           Edit your job: {job_name}
         </h2>
-        <form onSubmit={handleSubmit}>
+        <form className="edit-form" onSubmit={handleSubmit}>
           <label className="block mb-2 font-medium text-gray-700">
             Job Name:
             <input

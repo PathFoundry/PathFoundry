@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+.edit-form input:hover {
+  border: rgba(0, 0, 0, 0.319) solid;
+}
+
 /* code for mobile */
 
 li {
