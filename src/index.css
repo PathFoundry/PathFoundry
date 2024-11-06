@@ -165,6 +165,8 @@
   margin: 0.5rem 0rem 0.5rem 1rem;
   border-radius: 0.5rem;
   border: rgba(0, 0, 0, 0.23) solid;
+  font-size: smaller;
+  font-weight: 300;
 }
 #back-button:hover {
   box-shadow: 0 0.1rem 0.2rem 0.2rem rgb(224, 223, 223);
@@ -184,7 +186,7 @@
 }
 
 #edit-logo:hover {
-  box-shadow: 0 0.1rem 0.2rem 0.2rem rgb(224, 223, 223);
+  box-shadow: 0 0.1rem 0.1rem 0.1rem rgb(224, 223, 223);
 }
 
 .edit-back-buttons {
