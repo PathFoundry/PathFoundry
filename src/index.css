@@ -176,30 +176,38 @@
   margin-left: 10%;
 }
 
-#edit-details {
-  width: 2rem;
-  height: auto;
+#edit-logo {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.2rem;
+  border: rgba(0, 0, 0, 0.23) solid;
 }
+
+#edit-logo:hover {
+  box-shadow: 0 0.1rem 0.2rem 0.2rem rgb(224, 223, 223);
+}
+
 .edit-back-buttons {
   display: flex;
   justify-content: space-between;
 }
 
 .edit-back-buttons img {
-  margin-right: 2rem;
+  margin-right: 1rem;
+  margin-top: 0.8rem;
 }
 
 #company-logo {
   width: 8rem;
   height: 8rem;
   border-radius: 0.5rem;
-  border: blue solid;
+  border: rgba(0, 0, 0, 0.23) solid;
   margin-left: 1rem;
 }
 
 #details-description {
   text-align: left;
-  margin: 1rem;
+  margin: 2rem;
 }
 
 #contract-details {
