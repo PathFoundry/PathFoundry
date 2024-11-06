@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+import editIcon from "../assets/edit-icon.png";
 
 function JobDetails({ setJobs }) {
   const { jobId } = useParams();
@@ -53,7 +54,7 @@ function JobDetails({ setJobs }) {
             </Link>
             <img
               id="edit-logo"
-              src="src/assets/edit-icon.png"
+              src={editIcon}
               onClick={() => navigate(`/jobs/${jobId}/edit`)}
             />
           </div>
