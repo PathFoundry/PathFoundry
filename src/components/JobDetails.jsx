@@ -6,6 +6,8 @@ import editIcon from "../assets/edit-icon.png";
 function JobDetails({ setJobs }) {
   const { jobId } = useParams();
   const [job, setJob] = useState(null);
+  const [deletedMessage, setDeletedMessage] = useState("");
+  const [showNotification, setShowNotification] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,17 +23,24 @@ function JobDetails({ setJobs }) {
 
   if (!job) return <div className="text-center">Loading...</div>;
 
-  // Function to delete a job
   const handleDelete = async () => {
     try {
-      // Call the delete API
       await axios.delete(
         `https://pathfoundry-2d121-default-rtdb.europe-west1.firebasedatabase.app/jobs-api/${jobId}.json`
       );
 
       // Update state to remove the deleted job from the list
       setJobs((prevJobs) => prevJobs.filter((job) => job.id !== jobId));
-      navigate("/");
+
+      setDeletedMessage("Job deleted successfully!");
+      setShowNotification(true);
+
+      setTimeout(() => {
+        setShowNotification(false);
+        setTimeout(() => {
+          navigate("/");
+        }, 500);
+      }, 1000);
     } catch (error) {
       console.error("Error deleting job:", error);
     }
@@ -40,6 +49,16 @@ function JobDetails({ setJobs }) {
   return (
     <div className="list-container">
       <div className="container mx-auto px-4 py-8">
+        {showNotification && (
+          <div
+            className="fixed top-4 right-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded shadow-lg transform transition-opacity duration-500"
+            role="alert"
+          >
+            <span className="block sm:inline font-semibold">
+              {deletedMessage}
+            </span>
+          </div>
+        )}
         <div
           id="job-card-details"
           className="bg-white shadow-md rounded-lg p-4"
@@ -56,6 +75,8 @@ function JobDetails({ setJobs }) {
               id="edit-logo"
               src={editIcon}
               onClick={() => navigate(`/jobs/${jobId}/edit`)}
+              alt="Edit Job"
+              className="cursor-pointer"
             />
           </div>
 
