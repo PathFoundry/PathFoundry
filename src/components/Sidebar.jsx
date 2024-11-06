@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"; // Import Link for routing
-import "../css/Forms.css";
+import "/src/css/forms.css";
 
 const Sidebar = ({ inputRef, onChange }) => {
   return (

@@ -22,6 +22,7 @@ function AddJobForm() {
   // Form submission handler
   const handleSubmit = (e) => {
     e.preventDefault();
+
     // Basic validation
     if (!job_name || !company_name || !description) {
       setError("Please fill in all required fields.");
@@ -63,6 +64,7 @@ function AddJobForm() {
         setContractType("");
         setJobHours("");
         setRemote("");
+        window.scrollTo(0, 0);
         navigate("/"); // Redirect to homepage
       })
       .catch((e) => {

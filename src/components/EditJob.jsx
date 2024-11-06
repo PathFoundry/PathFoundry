@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import "../css/forms.css";
+import "/src/css/forms.css";
 
 function EditJob() {
   // State variables
