@@ -31,7 +31,6 @@ function EditJob() {
         setDescription(response.data.description);
         setSalary(response.data.salary);
         setLocation(response.data.company_location);
-        setMap(response.data.company_location_maps);
         setLogo(response.data.company_logo_url);
         setContractType(response.data.type_contract);
         setJobHours(response.data.job_hours);
@@ -53,7 +52,6 @@ function EditJob() {
       description,
       salary,
       company_location,
-      company_location_maps,
       company_logo_url,
       type_contract,
       job_hours,

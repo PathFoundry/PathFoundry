@@ -9,7 +9,6 @@ function AddJobForm() {
   const [description, setDescription] = useState("");
   const [salary, setSalary] = useState("");
   const [company_location, setLocation] = useState("");
-  const [company_location_maps, setMap] = useState("");
   const [company_logo_url, setLogo] = useState("");
   const [type_contract, setContractType] = useState("");
   const [job_hours, setJobHours] = useState("");
@@ -37,7 +36,6 @@ function AddJobForm() {
       description,
       salary,
       company_location,
-      company_location_maps,
       company_logo_url,
       type_contract,
       job_hours,
@@ -63,7 +61,6 @@ function AddJobForm() {
         setDescription("");
         setSalary("");
         setLocation("");
-        setMap("");
         setLogo("");
         setContractType("");
         setJobHours("");
