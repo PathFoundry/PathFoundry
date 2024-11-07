@@ -31,7 +31,6 @@ function EditJob() {
         setDescription(response.data.description);
         setSalary(response.data.salary);
         setLocation(response.data.company_location);
-        setMap(response.data.company_location_maps);
         setLogo(response.data.company_logo_url);
         setContractType(response.data.type_contract);
         setJobHours(response.data.job_hours);
@@ -53,7 +52,6 @@ function EditJob() {
       description,
       salary,
       company_location,
-      company_location_maps,
       company_logo_url,
       type_contract,
       job_hours,
@@ -140,17 +138,6 @@ function EditJob() {
               onChange={(e) => setLocation(e.target.value)}
               className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
               required
-            />
-          </label>
-          <label className="block mb-2 font-medium text-gray-700">
-            Map URL:
-            <input
-              type="text"
-              name="company_location_maps"
-              placeholder="Map URL"
-              value={company_location_maps}
-              onChange={(e) => setMap(e.target.value)}
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
             />
           </label>
           <label className="block mb-2 font-medium text-gray-700">

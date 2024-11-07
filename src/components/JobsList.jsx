@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import axios from "axios";
 import "/src/css/forms.css";
-import trashIcon from "../assets/delete.png";
+import trashIcon from "src/assets/delete.png";
+import noPhoto from "src/assets/no-photo.png";
 
 function JobsList({ jobs, setJobs, filteredItems, handleDelete }) {
   useEffect(() => {
@@ -40,11 +41,19 @@ function JobsList({ jobs, setJobs, filteredItems, handleDelete }) {
                   className="bg-white shadow-lg rounded-lg p-6 flex flex-col md:flex-row md:mt-4 max-380:pr-6"
                 >
                   <div className="flex-shrink-0">
-                    <img
-                      src={job.company_logo_url}
-                      alt={`${job.company_name} logo`}
-                      className="w-20 h-20 rounded-md border border-blue-500"
-                    />
+                    {job.company_logo_url ? (
+                      <img
+                        src={job.company_logo_url}
+                        alt={`${job.company_name} logo`}
+                        className="w-20 h-20 rounded-md border border-blue-500"
+                      />
+                    ) : (
+                      <img
+                        src={noPhoto}
+                        alt={`${job.company_name} logo`}
+                        className="w-20 h-20 rounded-md border border-blue-500"
+                      />
+                    )}
                   </div>
                   <div className="flex-grow md:ml-4 mt-4 md:mt-0">
                     <div className="card-head-container">
