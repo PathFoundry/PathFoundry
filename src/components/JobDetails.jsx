@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import editIcon from "../assets/edit-icon.png";
+import "/src/css/forms.css";
 
 function JobDetails({ setJobs }) {
   const { jobId } = useParams();
@@ -47,7 +48,7 @@ function JobDetails({ setJobs }) {
   };
 
   return (
-    <div className="list-container">
+    <div className="list-container    custom-style">
       <div className="container mx-auto px-4 py-8">
         {showNotification && (
           <div

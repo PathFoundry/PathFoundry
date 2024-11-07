@@ -29,7 +29,7 @@ function JobsList({ jobs, setJobs, filteredItems, handleDelete }) {
   const displayJobs = filteredItems.length > 0 ? filteredItems : jobs;
   return (
     <div className="list-container">
-      <div className="px-4 py-2 ml-20">
+      <div className="px-4 py-2 ml-20 custom-style">
         <h1 className="text-2xl font-bold mb-6">Job Listings</h1>
         <ul className="space-y-4">
           {(displayJobs || []).map((job) => (
@@ -37,7 +37,7 @@ function JobsList({ jobs, setJobs, filteredItems, handleDelete }) {
               <NavLink to={`/jobs/${job.id}`}>
                 <li
                   key={job.id}
-                  className="bg-white shadow-lg rounded-lg p-6 flex flex-col md:flex-row md:mt-4"
+                  className="bg-white shadow-lg rounded-lg p-6 flex flex-col md:flex-row md:mt-4 max-380:pr-6"
                 >
                   <div className="flex-shrink-0">
                     <img

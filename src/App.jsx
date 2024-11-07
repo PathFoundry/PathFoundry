@@ -9,7 +9,6 @@ import AddJobForm from "./components/AddJobForm";
 import JobDetails from "./components/JobDetails";
 import About from "./components/About";
 import axios from "axios";
-
 import "./App.css";
 
 function App() {
@@ -63,7 +62,7 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div className="flex flex-1">
+      <div className="main-container flex-1 flex">
         <Sidebar onChange={onChange} inputRef={inputRef} onSubmit={onSubmit} />
         <main className="flex-1">
           <Routes>
