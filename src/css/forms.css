@@ -35,4 +35,9 @@
   .title-style {
     text-align: center;
   }
+
+  .items-details {
+    text-align: center;
+    margin-left: 5.5rem;
+  }
 }
