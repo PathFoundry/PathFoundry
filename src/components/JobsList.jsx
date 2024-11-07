@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import axios from "axios";
 import "/src/css/forms.css";
-import trashIcon from "src/assets/delete.png";
-import noPhoto from "src/assets/no-photo.png";
+import trashIcon from "/src/assets/delete.png";
+import noPhoto from "/src/assets/no-photo.png";
 
 function JobsList({ jobs, setJobs, filteredItems, handleDelete }) {
   useEffect(() => {
