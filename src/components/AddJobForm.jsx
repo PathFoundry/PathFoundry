@@ -75,6 +75,8 @@ function AddJobForm() {
             navigate("/");
           }, 500);
         }, 2000);
+
+        window.scrollTo(0, 0);
       })
 
       .catch((e) => {
