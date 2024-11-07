@@ -1,3 +1,8 @@
+import githubLogo from "../assets/github-logo.webp";
+import linkedInLogo from "../assets/linkedin-logo.webp";
+import batuPhoto from "../assets/photo-batu.png";
+import olgaPhoto from "../assets/stuart-photo.png";
+
 function About() {
   return (
     <div className="list-container">
@@ -26,7 +31,7 @@ function About() {
           <div className="contributors-container">
             <div className="contributor-1">
               <h6>Batu</h6>
-              <img className="photo" src="src/assets/photo-batu.png" />
+              <img className="photo" src={batuPhoto} />
               <p>
                 Praesent et vehicula lacus. Praesent eget aliquet nisi. Aenean
                 laoreet faucibus enim in vehicula. In a interdum velit, ac
@@ -34,25 +39,19 @@ function About() {
               </p>
               <div className="logos">
                 <a href="https://github.com/bthnyildirim" target="blank">
-                  <img
-                    className="github-logo"
-                    src="src/assets/github-logo.webp"
-                  />
+                  <img className="github-logo" src={githubLogo} />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/batuhan-yildirim-17b109124/"
                   target="blank"
                 >
-                  <img
-                    className="linkedin-logo"
-                    src="src/assets/linkedin-logo.webp"
-                  />
+                  <img className="linkedin-logo" src={linkedInLogo} />
                 </a>
               </div>
             </div>
             <div className="contributor-2">
               <h6>Olga</h6>
-              <img className="photo" src="src/assets/stuart-photo.png" />
+              <img className="photo" src={olgaPhoto} />
               <p>
                 Praesent et vehicula lacus. Praesent eget aliquet nisi. Aenean
                 laoreet faucibus enim in vehicula. In a interdum velit, ac
@@ -60,19 +59,13 @@ function About() {
               </p>
               <div className="logos">
                 <a href="https://github.com/OlgaCasanovasM" target="blank">
-                  <img
-                    className="github-logo"
-                    src="src/assets/github-logo.webp"
-                  />
+                  <img className="github-logo" src={githubLogo} />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/olga-casanovas-bb29bb89/"
                   target="blank"
                 >
-                  <img
-                    className="linkedin-logo"
-                    src="src/assets/linkedin-logo.webp"
-                  />
+                  <img className="linkedin-logo" src={linkedInLogo} />
                 </a>
               </div>
             </div>
