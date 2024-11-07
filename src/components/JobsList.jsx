@@ -31,7 +31,7 @@ function JobsList({ jobs, setJobs, filteredItems, handleDelete }) {
   return (
     <div className="list-container">
       <div className="px-4 py-2 ml-20 custom-style">
-        <h1 className="text-2xl font-bold mb-6">Job Listings</h1>
+        <h1 className="text-2xl font-bold mb-6 title-style">Job Listings</h1>
         <ul className="space-y-4">
           {(displayJobs || []).map((job) => (
             <div className="card-wraper" key={job.id}>
@@ -76,7 +76,7 @@ function JobsList({ jobs, setJobs, filteredItems, handleDelete }) {
                     <p className="mt-2 text-lg font-bold text-gray-700">
                       {job.salary}
                     </p>
-                    <div className="mt-4 flex items-center justify-between">
+                    <div className="mt-4 flex items-center justify-between details-style">
                       <div className="flex space-x-4 text-gray-500">
                         <span>{job.type_contract}</span>
                         {job.remote && (
@@ -86,9 +86,9 @@ function JobsList({ jobs, setJobs, filteredItems, handleDelete }) {
                       </div>
                       <Link
                         to={`/jobs/${job.id}`}
-                        className="mt-2 text-blue-500 hover:text-blue-700 font-semibold"
+                        className="text-blue-500 hover:text-blue-700 font-semibold max-380:ml-auto"
                       >
-                        View More Details
+                        More Details
                       </Link>
                     </div>
                   </div>

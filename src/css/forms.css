@@ -31,4 +31,8 @@
     margin-left: 0;
     padding-left: 0rem;
   }
+
+  .title-style {
+    text-align: center;
+  }
 }
