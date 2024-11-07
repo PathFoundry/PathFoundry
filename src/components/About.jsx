@@ -1,7 +1,7 @@
-import githubLogo from "../assets/github-logo.webp";
-import linkedInLogo from "../assets/linkedin-logo.webp";
-import batuPhoto from "../assets/photo-batu.png";
-import olgaPhoto from "../assets/stuart-photo.png";
+import githubLogo from "src/assets/github-logo.webp";
+import linkedInLogo from "src/assets/linkedin-logo.webp";
+import batuPhoto from "src/assets/photo-batu.png";
+import olgaPhoto from "src/assets/stuart-photo.png";
 
 function About() {
   return (
