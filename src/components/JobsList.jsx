@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import axios from "axios";
 import "/src/css/forms.css";
+import trashIcon from "../assets/delete.png";
 
 function JobsList({ jobs, setJobs, filteredItems, handleDelete }) {
   useEffect(() => {
@@ -52,7 +53,7 @@ function JobsList({ jobs, setJobs, filteredItems, handleDelete }) {
                       </h2>
 
                       <img
-                        src="src/assets/delete.png"
+                        src={trashIcon}
                         className="delete-button"
                         onClick={(e) => {
                           e.stopPropagation();
