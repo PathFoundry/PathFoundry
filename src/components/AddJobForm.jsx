@@ -179,24 +179,10 @@ function AddJobForm() {
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              Map URL:
-            </label>
-            <input
-              type="text"
-              name="company_location_maps"
-              placeholder="Map URL"
-              value={company_location_maps}
-              onChange={(e) => setMap(e.target.value)}
-              className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-300"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
               Logo:
             </label>
             <input
               type="text"
-              required
               name="company_logo_url"
               placeholder="Paste URL here"
               value={company_logo_url}

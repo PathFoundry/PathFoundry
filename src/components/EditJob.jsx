@@ -143,17 +143,6 @@ function EditJob() {
             />
           </label>
           <label className="block mb-2 font-medium text-gray-700">
-            Map URL:
-            <input
-              type="text"
-              name="company_location_maps"
-              placeholder="Map URL"
-              value={company_location_maps}
-              onChange={(e) => setMap(e.target.value)}
-              className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
-            />
-          </label>
-          <label className="block mb-2 font-medium text-gray-700">
             Logo:
             <input
               type="text"

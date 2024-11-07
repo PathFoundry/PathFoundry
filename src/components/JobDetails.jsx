@@ -81,11 +81,19 @@ function JobDetails({ setJobs }) {
           </div>
 
           <div className="flex items-center mb-4 mt-4">
-            <img
-              id="company-logo"
-              src={job.company_logo_url}
-              alt={`${job.company_name} logo`}
-            />
+            {job.company_logo_url ? (
+              <img
+                src={job.company_logo_url}
+                alt={`${job.company_name} logo`}
+                className="w-20 h-20 rounded-md border border-blue-500"
+              />
+            ) : (
+              <img
+                src={noPhoto}
+                alt={`${job.company_name} logo`}
+                className="w-20 h-20 rounded-md border border-blue-500"
+              />
+            )}
             <div className="ml-4">
               <h1 className="text-2xl font-bold text-gray-800">
                 {job.job_name}
