@@ -76,12 +76,6 @@ li {
   transition: transform 0.3s ease-in-out;
   transform: translateX(-100%);
 }
-/* For mobile screens */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 50px;
-  }
-}
 
 /* For screens larger than 768px */
 @media (min-width: 768px) {

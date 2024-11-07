@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import noPhoto from "../assets/no-photo.png";
+import editIcon from "../assets/edit-icon.png";
 import "/src/css/forms.css";
 
 function JobDetails({ setJobs }) {
@@ -72,16 +73,16 @@ function JobDetails({ setJobs }) {
             >
               &lt; Back
             </Link>
-            <Link
-              to="/jobs/:jobId/edit"
-              className="text-black-500 hover:text-blue-700 font-semibold px-6 py-0.5 mx-6 cursor-pointer"
-              id="back-button"
-            >
-              Edit
-            </Link>
+            <img
+              id="edit-logo"
+              src={editIcon}
+              onClick={() => navigate(`/jobs/${jobId}/edit`)}
+              alt="Edit Job"
+              className="cursor-pointer"
+            />
           </div>
 
-          <div className="flex items-center mb-4 mt-4">
+          <div className="flex items-center mb-4  ml-5 mt-4">
             {job.company_logo_url ? (
               <img
                 src={job.company_logo_url}
