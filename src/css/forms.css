@@ -16,6 +16,18 @@ li {
   transition: transform 0.2s;
 }
 
+@media (max-width: 1020px) {
+  li {
+    flex-direction: row;
+  }
+  .delete-button {
+    display: none;
+  }
+  #more-details {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   li {
     flex-direction: row;
@@ -28,7 +40,7 @@ li {
   .delete-button {
     display: none;
   }
-  .mt-2 {
+  #more-details {
     display: none;
   }
   .card-wraper {
@@ -124,17 +136,16 @@ li {
   display: flex;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
   .main-container {
     flex-direction: column;
   }
 
   #sidebar-container {
     width: 100%;
-    max-width: 400px;
+    border: none;
     margin: 0 auto;
-    padding: 1rem;
-    position: relative;
+    height: fit-content;
   }
 
   .job-listings {

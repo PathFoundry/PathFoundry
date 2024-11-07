@@ -31,6 +31,7 @@ const Sidebar = ({ inputRef, onChange }) => {
         </span>
 
         <input
+          id="searchbar"
           type="text"
           ref={inputRef}
           onChange={onChange}

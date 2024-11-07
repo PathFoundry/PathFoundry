@@ -87,6 +87,7 @@ function JobsList({ jobs, setJobs, filteredItems, handleDelete }) {
                       <Link
                         to={`/jobs/${job.id}`}
                         className="text-blue-500 hover:text-blue-700 font-semibold max-380:ml-auto"
+                        id="more-details"
                       >
                         More Details
                       </Link>
