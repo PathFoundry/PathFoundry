@@ -1,5 +1,6 @@
 import React from "react";
 import "/src/css/forms.css";
+import companyLogo from "../assets/company-logo.png";
 
 const Footer = () => {
   return (
@@ -8,7 +9,7 @@ const Footer = () => {
         <a href="#">
           <img
             className="w-auto h-7"
-            src="../src/assets/company-logo.png"
+            src={companyLogo}
             alt="PathFoundry Logo"
           />
         </a>
